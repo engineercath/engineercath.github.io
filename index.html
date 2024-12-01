@@ -5,32 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculator</title>
         <link rel="stylesheet" href="calcu.css">
+        
         <!-- css code -->
-    <style>
-        body
-{
-    margin: 10;
-}
-#key
-{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    margin-top: 30px;
-    font-size: 50px;
-    border: double;    
-    border-radius: 35px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 30px;
-    justify-content: center;
-    align-items: center;
-    height: 370px;
-}
-.calculator
-{
-    font-family: arial;
-    background: linear-gradient(to right, pink 0%, lightblue 100%);
+        <style>
+            body
+            {
+                margin: 10;
+            }
+            #key
+            {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 4px;
+                margin-top: 30px;
+                font-size: 50px;
+                border: double;    
+                border-radius: 35px;
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-bottom: 30px;
+                justify-content: center;
+                align-items: center;
+                height: 370px;
+            }
+            .calculator
+            {
+                font-family: arial;
+                background: linear-gradient(to right, pink 0%, lightblue 100%);
     border-radius: 35px;
     max-width: 70vh;
     height: 600px;
@@ -135,7 +136,7 @@ button:hover
             <button onclick="appendToResult('*')" class="operator">*</button>
             <button type="button" onclick="appendToResult('7')">7</button>
             <button type="button" onclick="appendToResult('8')">8</button>
-            <button type="button" onclick="appendToResult('8')">9</button>
+            <button type="button" onclick="appendToResult('9')">9</button>
             <button type="button" onclick="appendToResult('-')" class="operator">-</button>
             <button type="button" onclick="appendToResult('4')">4</button>
             <button type="button" onclick="appendToResult('5')">5</button>
