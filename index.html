@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="calcu.css">
+        <!-- css code -->
+    <style>
+        body
+{
+    margin: 10;
+}
+#key
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin-top: 30px;
+    font-size: 50px;
+    border: double;    
+    border-radius: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    height: 370px;
+}
+.calculator
+{
+    font-family: arial;
+    background: linear-gradient(to right, pink 0%, lightblue 100%);
+    border-radius: 35px;
+    max-width: 70vh;
+    height: 600px;
+    border: solid;
+    overflow: hidden;
+}
+#display
+{
+    text-align: right;
+    color: black;
+    border: inset;
+    font-size: 3rem;
+    width: 250px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;  
+ }   
+button
+{
+    background-color: white;
+    opacity: 80%;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: outset;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: auto;
+    
+}
+.operator
+{
+    background-color: orange;
+}
+.equal
+{
+    background-color: red;
+    grid-column: span 2;
+    width: 130px;
+}
+form
+{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+h2
+{
+    text-align: center;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-position: center top;
+}
+button:active
+{
+    background-color: black;
+}
+button:hover
+{
+    background-color: pink;
+}
+.container 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.container h2 
+{
+    margin: 0;
+    font-style: italic;
+    font-size: 40px;
+}
+.container span 
+{
+    margin: 0;
+}
+    
+    </style>
+    </head>
+    <body>
+        <div class="calculator">
+        <form onsubmit="return false;">
+            <div class="container">
+                <span style='font-size:50px;'>&#128062;</span>
+                <h2>Calculator</h2>
+                <span style='font-size:50px;'>&#128062;</span>
+            </div>
+                <input id="display" type="text/css" readonly>
+            <div id="key">
+            <button type="button" onclick="clearResult()" class="operator">C</button>
+            <button type="button" onclick="clearLast('')" class="operator">del</button>
+            <button type="button"  onclick="appendToResult('%')" class="operator">%</button>
+            <button onclick="appendToResult('*')" class="operator">*</button>
+            <button type="button" onclick="appendToResult('7')">7</button>
+            <button type="button" onclick="appendToResult('8')">8</button>
+            <button type="button" onclick="appendToResult('8')">9</button>
+            <button type="button" onclick="appendToResult('-')" class="operator">-</button>
+            <button type="button" onclick="appendToResult('4')">4</button>
+            <button type="button" onclick="appendToResult('5')">5</button>
+            <button type="button" onclick="appendToResult('6')">6</button>
+            <button type="button" onclick="appendToResult('+')" class="operator">+</button>
+            <button type="button" onclick="appendToResult('1')">1</button>
+            <button type="button" onclick="appendToResult('2')">2</button>
+            <button type="button" onclick="appendToResult('3')">3</button>
+            <button type="button" onclick="appendToResult('/')" class="operator">/</button>
+            <button type="button" onclick="appendToResult('0')">0</button>
+            <button type="button" onclick="appendToResult('.')">.</button>            
+            <button type="button" "
+            onclick="calculate()" class="equal">=</button>
+        </form>
+        </div>
+        <script>
+            const display = document.getElementById("display");
+function appendToResult(input) 
+{
+    display.value += input;
+}
+function clearResult() {
+    display.value = "";
+}
+function clearLast() {
+    display.value = display.value.slice(0, -1);
+}
+function calculate() 
+{
+    try 
+    {
+        const expression =display.value.replace
+        (/(\d+(\.\d+)?)%/g, (match, num) => 
+            {
+            return `${num}/100`;
+            }
+         );
+        display.value = eval(expression); 
+    } 
+    catch (error) 
+    {
+        display.value = "hoy!! mali";
+    }
+}
+
+function showEmojiOnButton(button) 
+{
+    const originalText = button.innerHTML;
+    button.innerHTML = `${originalText} &#128062;`;
+    setTimeout
+    (() => 
+        {
+        button.innerHTML = originalText; 
+        }, 500
+    );
+}
+document.querySelectorAll("button").forEach((button) => 
+    {
+    button.addEventListener("click", function () {
+        showEmojiOnButton(this);
+    });
+});
+
+        </script>
+    </body>
+</html>
+
